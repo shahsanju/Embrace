@@ -1,12 +1,42 @@
-# 🎓 Embrace – Alumni Connect Platform
+# 🎓 Embrace – Supporting Female Students in ECS
 
-A full-stack alumni networking platform built for colleges, featuring a web portal, real-time chat, and a mobile app.
+> Master's Project — California State University, Sacramento (Spring 2024)  
+> Approved by Dr. Anna Baynes (Committee Chair) & Dr. Ahmed Salim (Second Reader)
 
 ---
 
 ## 📌 About the Project
 
-Embrace is a platform that connects college students with alumni. It allows alumni to register, share job opportunities, post in forums, schedule meetings, and chat in real time. Admins can manage users, events, gallery, courses, and site settings through a dedicated dashboard.
+**Embrace** is a full-stack platform designed to empower female undergraduate students majoring in Engineering and Computer Science (ECS) at Sac State. Inspired by the gender gap in ECS fields — where only 8.4% of Sac State graduates are female ECS majors — this project provides a single platform with all the support a female student might need throughout her academic journey.
+
+The platform consists of three components working together:
+- A **Flutter iOS mobile app** for students
+- A **PHP web admin panel** for university administrators
+- A **Node.js real-time chat server** using Socket.IO
+
+---
+
+## ✨ Features
+
+### 📱 Mobile App (for students)
+- **Job Discovery** — Browse job postings with salary info and requirements
+- **Roadmap** — Course recommendations tailored to specific career goals
+- **Alumni Connect** — Network and chat with alumni
+- **Senior Connect** — Connect with senior students for mentorship; schedule meetings
+- **Scholarship Search** — Filter and explore available financial aid
+- **News Feed** — Real-time IT industry news and articles
+- **Event Notifications** — University event reminders pushed from admin
+- **Role-Based Access** — Different views for current students, seniors, alumni, and male users
+
+### 🖥️ Admin Panel (for university staff)
+- Manage users (verify, view, delete accounts)
+- Post and manage job listings, events, scholarships, and courses
+- Gallery management
+- View alumni and student data
+
+### 💬 Chat Server
+- Real-time one-on-one messaging using Socket.IO
+- Meeting scheduling between students and seniors/alumni
 
 ---
 
@@ -14,99 +44,77 @@ Embrace is a platform that connects college students with alumni. It allows alum
 
 ```
 Embrace/
-├── college/          # PHP Web Application (Frontend + Backend)
-│   ├── admin/        # Admin dashboard (manage users, events, jobs, forums)
-│   ├── database/     # MySQL database schema
-│   └── ...           # Alumni-facing pages (home, login, signup, forum, etc.)
+├── college/          # PHP Web Admin Panel
+│   ├── admin/        # Admin dashboard (users, jobs, events, scholarships, courses)
+│   ├── database/     # MySQL schema (alumni_db.sql)
+│   └── ...           # Student-facing pages
 ├── chat_app/         # Real-time Chat Server (Node.js + Socket.IO)
-└── embrance/         # Mobile App (Flutter)
+└── embrance/         # iOS Mobile App (Flutter/Dart)
 ```
-
----
-
-## ✨ Features
-
-- Alumni registration, login, and profile management
-- Admin dashboard to manage alumni, events, jobs, courses, and gallery
-- Discussion forums and comment system
-- Job board for career opportunities
-- Real-time one-on-one chat between users
-- Meeting scheduling between alumni and students
-- Mobile app (Flutter) for on-the-go access
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Layer | Technology |
-|-------|-----------|
-| Web Frontend | HTML, CSS, JavaScript, PHP |
-| Backend | PHP, MySQL |
+| Component | Technology |
+|-----------|-----------|
+| Mobile App | Flutter (Dart), Cupertino & Material widgets |
+| Admin Web Panel | PHP, HTML, CSS, JavaScript, AJAX |
 | Real-time Chat | Node.js, Express, Socket.IO |
-| Mobile App | Flutter (Dart) |
 | Database | MySQL |
+| Local Storage (App) | SQLite |
+| Data Format | JSON / REST API |
 
 ---
 
 ## ⚙️ How to Run
 
 ### Prerequisites
-- PHP and a local server like **XAMPP** or **MAMP**
-- **MySQL** database
-- **Node.js** (v14 or above)
+- **XAMPP** or **MAMP** (for PHP + MySQL)
+- **Node.js** v14 or above
 - **Flutter SDK** (for mobile app)
 
 ---
 
 ### 1️⃣ Set Up the Database
-
-1. Open **phpMyAdmin** (comes with XAMPP/MAMP)
-2. Create a new database called `alumni_db`
-3. Import the file `college/database/alumni_db.sql` into it
+1. Open **phpMyAdmin**
+2. Create a new database named `alumni_db`
+3. Import `college/database/alumni_db.sql`
 
 ---
 
-### 2️⃣ Run the Web App (PHP)
-
-1. Copy the `college/` folder into your XAMPP/MAMP `htdocs` directory
-2. Open `college/admin/db_connect.php` and make sure the credentials match your setup:
-   ```php
-   $conn = new mysqli('localhost', 'root', '', 'alumni_db');
-   ```
-3. Start Apache and MySQL from XAMPP/MAMP
-4. Open your browser and go to:
-   ```
-   http://localhost/college/
-   ```
+### 2️⃣ Run the Admin Web Panel (PHP)
+1. Copy the `college/` folder into your XAMPP/MAMP `htdocs` folder
+2. Start **Apache** and **MySQL** from XAMPP/MAMP
+3. Open your browser and visit:
+```
+http://localhost/college/
+```
 
 ---
 
 ### 3️⃣ Run the Chat Server (Node.js)
-
-Open a terminal and run:
-
 ```bash
 cd chat_app
 npm install
 node index.js
 ```
-
-The chat server will start on **port 8080**.
+Chat server runs on **port 8080**.
 
 ---
 
 ### 4️⃣ Run the Mobile App (Flutter)
-
 ```bash
 cd embrance
 flutter pub get
 flutter run
 ```
-
-Make sure your device/emulator is connected before running.
+Make sure an iOS simulator or device is connected.
 
 ---
 
-## 👥 Authors
+## 👩‍💻 Author
 
-- **Sanjana Shah** — [@shahsanju](https://github.com/shahsanju)
+**Sanjana Shah** — [@shahsanju](https://github.com/shahsanju)  
+Master of Science in Computer Science  
+California State University, Sacramento — Spring 2024
